@@ -1,0 +1,5 @@
+bricks:
+  configs:
+    path: bricks/configs
+  code:
+    path: bricks/code
