@@ -1,3 +1,7 @@
+import 'package:ez_validator/ez_validator.dart';
+
+import 'types.dart';
+
 TValidationResultSync validateApplication({required Map<String, dynamic> data, required List<Borrower> borrowers, required Offer offer}) => EzSchema.shape(
   {
     "amount": EzValidator<double>(label: "Amount").required(),
@@ -9,11 +13,9 @@ TValidationResultSync validateApplication({required Map<String, dynamic> data, r
 Application getApplication({required Map<String, dynamic> data, required List<Borrower> borrowers, required Offer offer}) {
   // Your application logic here
   return Application(
-    amount: data['amount'],
-    term: data['term'],
-    interestRate: data['interestRate'],
-    startDate: data['startDate'],
-    endDate: data['endDate'],
+    package_name: offer.package_name,
+    amount: offer.amount,
+    term: offer.term,
     module: {
       ...data
     }

@@ -1,3 +1,7 @@
+import 'package:ez_validator/ez_validator.dart';
+
+import 'types.dart';
+
 TValidationResultSync validateOffer(Map<String, dynamic> data) => EzSchema.shape(
   {
     "amount": EzValidator<double>(label: "Amount").required(),
@@ -8,12 +12,10 @@ TValidationResultSync validateOffer(Map<String, dynamic> data) => EzSchema.shape
 
 Offer getOffer(Map<String, dynamic> data) {
   // Your offer logic here
-  return Offer(
+    return Offer(
+      package_name: '{{ product_module_key }}',
     amount: data['amount'],
     term: data['term'],
-    interestRate: data['interestRate'],
-    startDate: data['startDate'],
-    endDate: data['endDate'],
     module: {
       ...data
     }
