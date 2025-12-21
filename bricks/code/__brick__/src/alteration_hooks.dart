@@ -1,3 +1,6 @@
+import 'package:ez_validator/ez_validator.dart';
+import 'types.dart';
+
 TValidationResultSync validateAlterationPackageRequest({ required String alterationKey, required Map<String, dynamic> data, required Loan loan, required List<Borrower> borrowers }) {
   switch (alterationKey) {
     case 'KEY':
@@ -8,36 +11,39 @@ TValidationResultSync validateAlterationPackageRequest({ required String alterat
         },
       ).validateSync(data);
     default:
-      throw new Error('Invalid alteration hook key "$alterationKey"');
+      throw new Exception('Invalid alteration hook key "$alterationKey"');
   }
 }
 
 AlterationPackage getAlterationPackage({ required String alterationKey, required Map<String, dynamic> data, required Loan loan, required List<Borrower> borrowers }) {
   switch (alterationKey) {
     case 'KEY':
-      return new AlterationPackage({
+      return new AlterationPackage(
+        package_name: loan.package_name,
         input_data: data,
-        loan_amount: loan.amount,
-        loan_term: loan.term,
+        amount: loan.amount,
+        term: loan.term,
         change_description: 'DESCRIPTION OF ALTERATION',
         module: {
           ...loan.module,
           ...data,
         },
-      });
+      );
     default:
-      throw new Error('Invalid alteration hook key "$alterationKey"');
+      throw new Exception('Invalid alteration hook key "$alterationKey"');
   }
 }
 
 AlteredLoan applyAlteration({ required String alterationKey, required Loan loan, required List<Borrower> borrowers, required AlterationPackage alterationPackage }) {
   switch (alterationKey) {
     case 'KEY':
-      return new AlteredLoan({
+      return new AlteredLoan(
         package_name: loan.package_name,
-        loan_amount: loan.loan_amount,
+        amount: loan.amount,
         term: loan.term,
         module: alterationPackage.module,
-      });
+      );
+    default:
+      throw new Exception('Invalid alteration hook key "$alterationKey"');
   }
 }
