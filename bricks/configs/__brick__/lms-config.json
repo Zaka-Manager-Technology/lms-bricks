@@ -54,5 +54,20 @@
       }
     },
     "alterationHooks": [],
-    "scheduledFunctions": []
+    "scheduledFunctions": [
+      {
+        "functionName": "updateLoanInterestRate",
+        "loanStatuses": [
+          "grace",
+          "on_schedule",
+          "default",
+          "terminated"
+        ],
+        "frequency": {
+          "type": "monthly",
+          "dayOfMonth": 8,
+          "timeOfDay": "07:30"
+        }
+      }
+    ]
   }
