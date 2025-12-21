@@ -1,0 +1,58 @@
+{
+    "$schema": "https://api.lms.co.za/v1/cli/json-schemas/lms-config",
+    "productModuleName": "{{ product_module_name }}",
+    "productModuleKey": "{{ product_module_key }}",
+    "organizationId": "{{ organization_id }}",
+    "host": "api.lms.co.za",
+    "codeFileOrder": [
+      "offers.dart",
+      "applications.dart",
+      "alteration_hooks.dart",
+      "scheduled_functions.dart",
+      "lifecycle_hooks.dart"
+    ],
+    "settings": {
+      "welcomeLetterEnabled": true,
+      "loanDocuments": [
+        {
+          "type": "terms",
+          "fileName": "loan_{{ loan.loan_reference }}_terms"
+        },
+        {
+          "type": "monthly_statement",
+          "fileName": "loan_{{ loan.loan_reference }}_monthly_statement"
+        },
+        {
+          "type": "loan_agreement",
+          "enabled": false
+        }
+      ],
+      "billing": {
+        "billBeforeWeekendEnabled": false,
+        "billingFrequency": "monthly",
+        "currency": "ZAR",
+        "enableBillingOnSandbox": false,
+        "paymentSubmissionLeadTime": 0,
+        "paymentMethodTypes": {
+          "debitOrders": {
+            "enabled": true,
+            "strategy": null,
+            "naedoPoliciesInArrears": false
+          },
+          "card": {
+            "enabled": false
+          },
+          "eft": {
+            "enabled": false
+          }
+        },
+        "retryFailedPayments": {
+          "enabled": true,
+          "daysBetweenRetries": 5,
+          "numberOfRetries": 1
+        }
+      }
+    },
+    "alterationHooks": [],
+    "scheduledFunctions": []
+  }
