@@ -1,3 +1,5 @@
+.dart_tool/
+
 # Ignore LMS Authentication file
 .lms-auth
 sandbox/output/*
