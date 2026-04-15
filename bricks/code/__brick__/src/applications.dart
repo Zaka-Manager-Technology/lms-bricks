@@ -1,13 +1,12 @@
-import 'package:ez_validator/ez_validator.dart';
-
 import 'types.dart';
 
-TValidationResultSync validateApplication({required Map<String, dynamic> data, required List<Borrower> borrowers, required Offer offer}) => EzSchema.shape(
-  {
-    "amount": EzValidator<double>(label: "Amount").required(),
+Future<ValidationResult> validateApplication({required Map<String, dynamic> data, required List<Borrower> borrowers, required Offer offer}) => Zod.validate(
+  data: data,
+  schema: {
+    'amount': Zod().isDouble().required(),
     // Your other fields used to create an application here
   },
-).validateSync(data);
+);
 
 
 Application getApplication({required Map<String, dynamic> data, required List<Borrower> borrowers, required Offer offer}) {

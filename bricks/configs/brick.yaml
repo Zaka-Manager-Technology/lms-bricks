@@ -26,8 +26,20 @@ environment:
 #  * a list of values (enums only)
 #  * an optional separator (list only)
 vars:
-  name:
+  product_module_name:
     type: string
-    description: Your name
-    default: Dash
-    prompt: What is your name?
+    description: Human-readable name of the product module
+    prompt: What is the product module name?
+  product_module_key:
+    type: string
+    description: Snake-case identifier for the product module
+    prompt: What is the product module key?
+  organization_id:
+    type: string
+    description: LMS organization UUID
+    prompt: What is your organization ID?
+  create_auth_file:
+    type: boolean
+    description: Whether to generate a .lms-auth file
+    default: false
+    prompt: Generate a .lms-auth file?

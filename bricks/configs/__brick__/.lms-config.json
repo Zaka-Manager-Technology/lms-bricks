@@ -4,7 +4,7 @@
     "productModuleKey": "{{ product_module_key }}",
     "organizationId": "{{ organization_id }}",
     "host": "api.lms.co.za",
-    "codeFileOrder": [
+    "codeFiles": [
       "offers.dart",
       "applications.dart",
       "alteration_hooks.dart",

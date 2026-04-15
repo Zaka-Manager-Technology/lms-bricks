@@ -3,3 +3,5 @@ bricks:
     path: bricks/configs
   code:
     path: bricks/code
+  documents:
+    path: bricks/documents
