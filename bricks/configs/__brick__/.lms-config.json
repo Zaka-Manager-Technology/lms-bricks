@@ -27,6 +27,10 @@
           "enabled": false
         }
       ],
+      "interest": {
+        "calculationMethod": "COMPOUND_DAILY_365",
+        "dayCountConvention": "ACTUAL_ACTUAL_ISDA"
+      },
       "billing": {
         "billBeforeWeekendEnabled": false,
         "billingFrequency": "monthly",
